@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- css -->
+    <link rel="stylesheet" href="/styles/styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <header id="main-head">
+        <nav id="navbar">            
+            <header><a href="#top"><h1 id="title">DOCUMENTACIÓN CSS</h1></a>
+            <ul>
+                <li><a href="#Estilo_cascada" class="nav-link">Estilo cascada</a></li>
+                <li><a href="#Selectores" class="nav-link">Selectores</a></li>
+                <li><a href="#Tipo_de_selectores" class="nav-link">Tipo de selectores</a></li>
+                <li><a href="#Comentarios" class="nav-link">Comentarios</a></li>
+                <li><a href="#Variables" class="nav-link">Variables</a></li>
+                <li><a href="#Media_Queries" class="nav-link">Media Queries</a></li>
+                <li><a href="#Unidades" class="nav-link">Unidades</a></li>
+                <li><a href="#Posiciones" class="nav-link">Posiciones</a></li>
+                <li><a href="#Accesibilidad" class="nav-link">Accesibilidad</a></li>
+            </ul>
+            </header>
+        </nav>
+    </header>
+
+
+    <main id="main-doc">
+        <section id="Estilo_cascada" class="main-section">
+            <header><h2>Estilo cascada</h2></header>
+            <p>Cuando damos estilo a un elemento HTML, este se aplicará al elemento indicado pero también será heredado por su contenido, a no ser que otra regla o selector sobreescriba el estilo para alguno de los hijos</p>
+
+            <p>El estilo se puede dar inline mediante el atributo style o con selectores, los cuales se pueden colocar dentro de la etiqueta style o en una hoja CSS referenciada dentro del head.</p>
+        </section>
+
+        <section id="Selectores" class="main-section">
+            <header><h2>Selectores</h2></header>
+            <p>Los selectores definen sobre qué elementos se aplicará un conjunto de reglas CSS.</p>
+        </section>
+
+        <section id="Tipo_de_selectores" class="main-section">
+            <header><h2>Tipo de selectores</h2></header>
+                <h3>Selectores Basicos</h3>
+
+                    <h5>Selector de tipo</h5>
+                        <p>Selecciona todos los elementos que coinciden con el nombre del elemento especificado. </p>
+                        <code>
+                            div{<br>
+                            /* Estilos */<br>
+                            }<br>
+                        </code>
+                        
+
+                     <h5>Selector de clase</h5>
+                        <p>Selecciona todos los elementos que tienen el atributo de class especificado.</p>
+                        <code>
+                            .clase{<br>
+                                /* Estilos */<br>
+                                }<br>
+                        </code>
+
+                    <h5>Selector de ID</h5>  
+                        <p> Selecciona un elemento basándose en el valor de su atributo id. Solo puede haber un elemento con un determinado ID dentro de un documento.</p>
+                        <code>
+                            #id{<br>
+                                /* Estilos */<br>
+                            }<br>
+                        </code>
+                    
+        </section>
+
+        <section id="Comentarios" class="main-section">
+            <header><h2>Comentarios</h2></header>
+            <p>Los comentarios son usados para añadir notas explicatorias o prevenir que el navegador interprete partes de la hoja de estilos.</p>
+
+            <p>Los comentarios se pueden colocar en cualquier espacio en blanco que se permita en la hoja de estilos.</p>
+
+            <h5>Sintaxis</h5>
+            <code>/* Contenido del comentario */</code>
+        </section>
+
+        <section id="Variables" class="main-section">
+            <header><h2>Variables</h2></header>
+            <p>Declaración y asignación: --nombrevariable: value;</p>
+            <p>Utilización: propiedad: var(--nombrevariable, fallback);</p>
+
+            <p>
+                <ul>
+                    <li>El fallback no es necesario. Se utiliza para que el navegador tenga un respaldo en caso de que la variable sea inválida. Es útil para debuggear.</li>
+                    <li>Otra manera de hacer respaldos es poner la misma propiedad justo antes con un valor con más soporte (aprovechando que, en caso de igual importancia, la prioridad va de abajo hacia arriba).</li>
+                </ul>
+            </p>
+
+            <p>Las variables en CSS también tienen efecto cascada. Por tanto, son utilizables dentro del elemento en el que han sido creadas y de cualquiera de los elementos que estén anidados dentro. Por esto, las variables CSS suelen declararse en la pseudoclase :root (contenedor de todo el documento .html).</p>
+
+            <p>Las variables se pueden sobreescribir volviéndolas a declarar dentro de elementos más específicos que aquel en el que fueran declaradas por primera vez.</p>
+        </section>
+
+        <section id="Media_Queries" class="main-section">
+            <header><h2>Media Queries</h2></header>
+            <p>Permiten cambiar los valores de las reglas de un selector en función del tamaño del viewport. Se utilizan para hacer contenido adaptativo. También pueden alterar el valor de las variables.</p>
+
+            <code>@media (max-width: 350px) {<br>
+                :root {<br>
+                    --penguin-size: 200px;<br> 
+                }<br>
+                p {<br>
+                    color: red;<br>
+                }<br>
+            }<br>
+        </code>
+
+        <p>Esta media querie se activaría si el ancho del viewport es menor o igual a 350 píxeles.</p>
+        </section>
+
+        <section id="Unidades" class="main-section">
+            <header><h2>Unidades</h2></header>
+            <h3>Unidades absolutas</h3>
+            <ul>
+                <li><strong>px:</strong> Pixeles</li>
+                <li><strong>%:</strong> Porcentaje respecto al elemento padre</li>
+            </ul>
+
+            <h3>Unidades relativas</h3>
+            <ul>
+                <li><strong>em:</strong>cambia el tamaño de un elemento con un multiplicador al tamaño de la fuente de ese mismo elemento, por lo que si el tamaño de la fuente cambia, el resultado de esta unidad también. Si se cambia font-size con em, se calculará en función del tamaño de la fuente del padre.</li>
+                <li><strong>vw:</strong> 10vw representan el 10% del ancho del viewport.</li>
+                <li><strong>vh:</strong> 3vh representan el 3% del alto del viewport.</li>
+                <li><strong>vmin:</strong> 70vmin representan el 70% de la dimensión más pequeña (ancho o alto).</li>
+                <li><strong>vmax:</strong> 100vmax representan el 100% de la dimensión más grande (ancho o alto).</li>
+            </ul>
+
+            <p>Se pueden poner margin y padding negativos.</p>
+
+            <p>En los atributos en los que se pueda cambiar el valor de los cuatro lados del elemento, los valores se introducen en sentido de las agujas del reloj empezando por top.</p>
+
+            <p>#RRGGBB se puede abreviar a #RGB. El navegador lo traducirá automáticamente. Por ejemplo, #FF0000 (rojo) se puede traducir a #F00.</p>
+        </section>
+
+        <section id="Posiciones" class="main-section">
+            <header><h2>Posiciones</h2></header>
+            <ul>
+                <li><strong>position: relative;</strong> Reposiciona el elemento respecto a su posición dentro del flujo normal. Su posición real dentro del flujo normal no cambia, por lo que otros elementos lo tratan como si estuviera en su posición por defecto</li>
+                <ul>
+                    <li>Se aprovecha con las propiedades left, right, top y bottom para indicar el offset visual que tiene que tener en píxeles, porcentajes o ems.</li>
+                    <li>Con reposicionamiento o sin él, el html tiene que mantener sentido cuando se lee de arriba a abajo por razones de SEO y para gente con visibilidad impedida.</li>
+                </ul>
+
+                <li><strong>position: absolute;</strong> Mueve el elemento en relación a su contenedor. Al contrario que relative, esto saca al elemento del flujo normal, de manera que otros a su alrededor dejarán de respetar el espacio que ocuparía normalmente.</li>
+                <ul>
+                    <li>La posición será respecto al primer padre que tenga una propiedad position definida.</li>
+                    <li>También utiliza las propiedades left, right, top y bottom para reposicionarse</li>
+                </ul>
+
+                <li><strong>position: fixed;</strong> Se comporta igual que absolute, pero se reposiciona en relación a la ventana del navegador. Por tanto, nunca cambia de posición dentro de esta a pesar de que el usuario haga scroll.</li>
+
+                <li><strong>float: left/right;</strong> Saca al elemento del flujo normal y lo empuja a la izquierda o la derecha dentro de su contenedor. Normalmente se usa en conjunto con width para indicar cuánto espacio horizontal debe ocupar.</li>
+
+                <li><strong>z-index: xxx;</strong> Por defecto, cuando varios elementos se superponen, la prioridad en el eje Z va de abajo hacia arriba al leer el documento. Z-index cambia a la fuerza la prioridad en el eje Z. Cuanto mayor sea el valor en z-index, mayor será su prioridad.</li>
+
+                <li><strong>border-sizing:</strong> Controla si width y height se aplican sobre el contenido o sobre todo.</li>
+                <ul>
+                    <li><strong>content-box:</strong> Valor por defecto. Width y height se aplican sobre el contenido</li>
+                    <li><strong>border-box:</strong> Width y height se aplican sobre contenido+padding+border.</li>
+                </ul>
+            </ul>
+        </section>
+
+        <section id="Accesibilidad" class="main-section">
+            <header><h2>Accesibilidad</h2></header>
+            <h3>Elementos visibles sólo para lectores de pantalla</h3>
+            <p>Esto es útil para mantener elementos que son útiles para el lector de pantalla pero que no queremos que sean visibles para la mayoría de usuarios, como por ejemplo el h1.</p>
+
+            <code>
+                .sr-only { <br>
+                    position: absolute; <br>
+                    left: -10000px; <br>
+                    width: 1px; <br>
+                    height: 1px; <br>
+                    top: auto; <br>
+                    overflow: hidden;<br>
+                    }
+            </code>
+        </section>
+    </main>
+</body>
+</html>
